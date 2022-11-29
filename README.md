@@ -23,15 +23,20 @@ And then excute these 2 commands for back-end server:
   <li><strong>node dist/api/src/main.js</strong></li>
 </ol>
 
-
+![start the application](https://github.com/EurusBeCool/Eurus-TaskApplicationDemo/blob/main/public/images/how%20to%20start.gif)
 
 ## With the playground, you can try to create, update or delete any task.
+![demo](https://github.com/EurusBeCool/Eurus-TaskApplicationDemo/blob/main/public/images/demo.gif)
 
 ## How to run Unit Test?
 Please Keep fron-end and back-end server running.
 Excute this command **ng test**
 
+![UT test demo](https://github.com/EurusBeCool/Eurus-TaskApplicationDemo/blob/main/public/images/how%20to%20run%20ut.gif)
+
 ## How to run E2E test with GUI?
 Please Keep fron-end and back-end server running.
 Excute this command **npm run cypress:open**
+
+![e2e test demo](https://github.com/EurusBeCool/Eurus-TaskApplicationDemo/blob/main/public/images/how%20to%20run%20e2e%20test.gif)
 
