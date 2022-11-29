@@ -1,9 +1,9 @@
 <div class="task-container">
   <!-- Create Button for task -->
-  <button mat-raised-button color="primary" (click)="createTask()">{{ labels['createBtn'] | uppercase }}</button>
+  <button mat-raised-button color="primary" (click)="createTask()" data-testid="create_btn">{{ labels['createBtn'] | uppercase }}</button>
   
   <!-- Display Task List -->
-  <mat-table class="task-table mat-elevation-z8" [dataSource]="taskList">
+  <mat-table class="task-table mat-elevation-z8" [dataSource]="taskList" data-testid="task_list">
     <ng-container matColumnDef="id">
       <mat-header-cell *matHeaderCellDef>{{labels['idColumn']}}</mat-header-cell>
       <mat-cell *matCellDef="let taskItem">{{taskItem.id}}</mat-cell>
@@ -11,20 +11,20 @@
 
     <ng-container matColumnDef="description">
       <mat-header-cell *matHeaderCellDef>{{labels['descriptionColumn']}}</mat-header-cell>
-      <mat-cell *matCellDef="let taskItem">{{taskItem.description}}</mat-cell>
+      <mat-cell *matCellDef="let taskItem" [attr.data-testid]="taskItem.description">{{taskItem.description}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="delete">
       <mat-header-cell colspan="2" *matHeaderCellDef>{{labels['deleteColumn']}}</mat-header-cell>
       <mat-cell *matCellDef="let taskItem">
-        <button mat-raised-button color="warn" (click)="deleteTask(taskItem)">{{ labels['deleteBtn'] | uppercase }}</button>
+        <button mat-raised-button color="warn" (click)="deleteTask(taskItem)" data-testid="delete_btn">{{ labels['deleteBtn'] | uppercase }}</button>
       </mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="update">
       <mat-header-cell colspan="2" *matHeaderCellDef>{{labels['updateColumn']}}</mat-header-cell>
       <mat-cell *matCellDef="let taskItem">
-        <button mat-raised-button color="primary" (click)="updateTask(taskItem)">{{ labels['updateBtn'] | uppercase }}</button>
+        <button mat-raised-button color="primary" (click)="updateTask(taskItem)" data-testid="update_btn">{{ labels['updateBtn'] | uppercase }}</button>
       </mat-cell>
     </ng-container>
 

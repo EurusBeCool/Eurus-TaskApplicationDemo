@@ -1,4 +1,4 @@
-<div class="task-dialog-container">
+<div class="task-dialog-container" data-testid="task_dialog">
   <h2 mat-dialog-title>{{title}}</h2>
 
   <ng-container *ngIf="type === 'CONTENT_TEXT'">
@@ -10,7 +10,7 @@
       <form [formGroup]="form">
         <mat-form-field appearance="fill">
           <mat-label>{{labels['inputTitle']}}</mat-label>
-          <input matInput formControlName="description" [placeholder]="labels['descriptionPlaceholde']">
+          <input matInput formControlName="description" [placeholder]="labels['descriptionPlaceholde']" data-testid="description_input">
         </mat-form-field>
       </form>
     </div>
@@ -20,6 +20,6 @@
 
   <mat-dialog-actions>
     <button mat-raised-button (click)="closeDialog()" >{{ labels['cancelBtn'] }}</button>
-    <button mat-raised-button color="primary" (click)="confirmTask()">{{ labels['confirmBtn'] }}</button>
+    <button mat-raised-button color="primary" (click)="confirmTask()" data-testid="confirm_btn">{{ labels['confirmBtn'] }}</button>
   </mat-dialog-actions>
 </div>
