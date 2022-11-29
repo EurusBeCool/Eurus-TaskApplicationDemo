@@ -16,7 +16,7 @@ This is a simple demo, with the following features:
 **Secondly**, please excute this command under the root path for front-end server: **npm run start**
 And then visit **localhost://4200** in your browser.
 
-**Thirdly**, please enter the back-end folder with the command **cd api**
+**Thirdly**, please enter the back-end folder with the command **cd api** and run **npm install**.
 And then excute these 2 commands for back-end server:
 <ol>
   <li><strong>npm run build</strong></li>
