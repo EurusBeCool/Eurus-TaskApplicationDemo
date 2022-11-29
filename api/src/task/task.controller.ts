@@ -1,5 +1,5 @@
 import { Controller, Get, Delete, Param, Body, Put, Post } from "@nestjs/common";
-import { TaskInterface, CommonInterface } from "../../../shared/interface";
+import { TaskInterface, CommonInterface } from "../../../shared/mockup/task";
 import { taskListMockup } from '../../../shared/mockup/task';
 
 @Controller()
@@ -44,9 +44,14 @@ export class TaskController {
 
   @Post(`/api/task`)
   async createTask(@Body() data: any): Promise<CommonInterface.PromiseData>{
-    const currentLastId = this.mockupData.reduce((x, y) => {
-      return x.id > y.id ? x : y
-    }).id;
+    let currentLastId: number;
+    if (this.mockupData.length > 0) {
+      currentLastId = this.mockupData.reduce((x, y) => {
+        return x.id > y.id ? x : y
+      }).id;
+    } else {
+      currentLastId = 0;
+    }
 
     const newItem: TaskInterface.TaskItem = {
       id: currentLastId + 1,

@@ -59,39 +59,45 @@ export class TaskComponent implements OnInit {
   createTask() {
     const config = this.createDialogConfigData('create')
     const dialogRef = this.dialog.open(TaskDialogComponent, config);
-    dialogRef.afterClosed().subscribe((form: {description: string}) => {
-      this.taskService.createTask(form.description).subscribe((res: any) => {
-        if(res?.status === 200){
-          this.loadTaskList()
-        }
-      });
+    dialogRef.afterClosed().subscribe((data: {type: string; description: string}) => {
+      if (data?.type === "confirm") {
+        this.taskService.createTask(data.description).subscribe((res: any) => {
+          if(res?.status === 200){
+            this.loadTaskList()
+          }
+        });
+      }
     })
   }
 
   deleteTask(taskItem: TaskInterface.TaskItem) {
     const config = this.createDialogConfigData('delete')
     const dialogRef = this.dialog.open(TaskDialogComponent, config);
-    dialogRef.afterClosed().subscribe(() => {
-      this.taskService.deleteTask(taskItem.id).subscribe((res: any) => {
-        if(res?.status === 200){
-          this.loadTaskList()
-        }
-      });
+    dialogRef.afterClosed().subscribe((data: {type: string}) => {
+      if (data?.type === "confirm") {
+        this.taskService.deleteTask(taskItem.id).subscribe((res: any) => {
+          if(res?.status === 200){
+            this.loadTaskList()
+          }
+        });
+      }
     })
   }
 
   updateTask(taskItem: TaskInterface.TaskItem) {
     const config = this.createDialogConfigData('update', taskItem.description)
     const dialogRef = this.dialog.open(TaskDialogComponent, config);
-    dialogRef.afterClosed().subscribe((form: {description: string}) => {
-      this.taskService.updateTask({
-        id: taskItem.id,
-        description: form.description
-      }).subscribe((res: any) => {
-        if(res?.status === 201){
-          this.loadTaskList()
-        }
-      });
+    dialogRef.afterClosed().subscribe((data: {type: string; description: string}) => {
+      if (data?.type === "confirm") {
+        this.taskService.updateTask({
+          id: taskItem.id,
+          description: data.description
+        }).subscribe((res: any) => {
+          if(res?.status === 201){
+            this.loadTaskList()
+          }
+        });
+      }
     })
   }
 }

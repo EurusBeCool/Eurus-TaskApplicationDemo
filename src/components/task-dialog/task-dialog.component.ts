@@ -25,17 +25,17 @@ export class TaskDialogComponent {
   }
 
   closeDialog() {
-    this.dialogRef.close();
+    this.dialogRef.close({ type: 'cancel' });
   }
 
   confirmTask() {
     if (this.type === TaskInterface.DialogType.CONTENT_TEXT) {
       // Inform parent component to delete this task
-      this.dialogRef.close();
+      this.dialogRef.close({ type: 'confirm' });
     } else {
       // Inform parent component to create or update this task
       if(this.form.valid) {
-        this.dialogRef.close(this.form.value);
+        this.dialogRef.close({ type: 'confirm', description: this.form.value.description });
       }
     }
   }
