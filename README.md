@@ -28,8 +28,10 @@ And then excute these 2 commands for back-end server:
 ## With the playground, you can try to create, update or delete any task.
 
 ## How to run Unit Test?
+Please Keep fron-end and back-end server running.
 Excute this command **ng test**
 
 ## How to run E2E test with GUI?
-Excute this command **cypress:open**
+Please Keep fron-end and back-end server running.
+Excute this command **npm run cypress:open**
 
