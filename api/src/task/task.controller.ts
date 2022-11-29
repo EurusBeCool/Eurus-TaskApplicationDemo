@@ -1,5 +1,5 @@
 import { Controller, Get, Delete, Param, Body, Put, Post } from "@nestjs/common";
-import { TaskInterface, CommonInterface } from "../../../shared/mockup/task";
+import { TaskInterface, CommonInterface } from "../../../shared/interface/index";
 import { taskListMockup } from '../../../shared/mockup/task';
 
 @Controller()
