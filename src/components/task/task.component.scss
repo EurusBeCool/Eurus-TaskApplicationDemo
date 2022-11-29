@@ -1,0 +1,24 @@
+$borderColor: #dedede;
+
+.task-container {
+  padding: 30px;
+
+  .task-table {
+    margin-top: 20px;
+    border: 1px solid $borderColor;
+
+    .mat-column-id {
+      flex: 0 0 5%;
+    }
+    .mat-column-description  {
+      flex: 0 0 75%;
+    }
+    .mat-column-delete, .mat-column-update  {
+      flex: 0 0 10%;
+    }
+  }
+
+  mat-paginator {
+    margin-top: 20px;
+  }
+}

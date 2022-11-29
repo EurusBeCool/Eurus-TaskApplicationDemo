@@ -1,0 +1,34 @@
+<div class="task-container">
+  <!-- Create Button for task -->
+  <button mat-raised-button color="primary" (click)="createTask()">{{ labels['createBtn'] | uppercase }}</button>
+  
+  <!-- Display Task List -->
+  <mat-table class="task-table mat-elevation-z8" [dataSource]="taskList">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef>{{labels['idColumn']}}</mat-header-cell>
+      <mat-cell *matCellDef="let taskItem">{{taskItem.id}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>{{labels['descriptionColumn']}}</mat-header-cell>
+      <mat-cell *matCellDef="let taskItem">{{taskItem.description}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <mat-header-cell colspan="2" *matHeaderCellDef>{{labels['deleteColumn']}}</mat-header-cell>
+      <mat-cell *matCellDef="let taskItem">
+        <button mat-raised-button color="warn" (click)="deleteTask(taskItem)">{{ labels['deleteBtn'] | uppercase }}</button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+      <mat-header-cell colspan="2" *matHeaderCellDef>{{labels['updateColumn']}}</mat-header-cell>
+      <mat-cell *matCellDef="let taskItem">
+        <button mat-raised-button color="primary" (click)="updateTask(taskItem)">{{ labels['updateBtn'] | uppercase }}</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

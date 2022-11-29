@@ -1,0 +1,25 @@
+<div class="task-dialog-container">
+  <h2 mat-dialog-title>{{title}}</h2>
+
+  <ng-container *ngIf="type === 'CONTENT_TEXT'">
+    <h2 mat-dialog-title>{{labels['deleteConfirmText']}}</h2>
+  </ng-container>
+
+  <ng-container *ngIf="type === 'CONTENT_FORM'">
+    <div mat-dialog-content >
+      <form [formGroup]="form">
+        <mat-form-field appearance="fill">
+          <mat-label>{{labels['inputTitle']}}</mat-label>
+          <input matInput formControlName="description" [placeholder]="labels['descriptionPlaceholde']">
+        </mat-form-field>
+      </form>
+    </div>
+      
+    
+  </ng-container>
+
+  <mat-dialog-actions>
+    <button mat-raised-button (click)="closeDialog()" >{{ labels['cancelBtn'] }}</button>
+    <button mat-raised-button color="primary" (click)="confirmTask()">{{ labels['confirmBtn'] }}</button>
+  </mat-dialog-actions>
+</div>
